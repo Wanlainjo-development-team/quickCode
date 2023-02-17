@@ -6,6 +6,7 @@ const { Navigator, Screen, Group } = createStackNavigator()
 
 // Screens
 import GetStarted from '../screens/getStarted/GetStarted'
+import TabNavigation from './TabNavigation'
 
 const StackNavigation = () => {
     return (
@@ -20,6 +21,7 @@ const StackNavigation = () => {
             }}
         >
             <Screen name="GetStarted" component={GetStarted} />
+            <Screen name="Home" component={TabNavigation} />
         </Navigator>
     )
 }
