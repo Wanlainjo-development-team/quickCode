@@ -7,6 +7,8 @@ const { Navigator, Screen, Group } = createStackNavigator()
 // Screens
 import GetStarted from '../screens/getStarted/GetStarted'
 import TabNavigation from './TabNavigation'
+import Codeinfo from '../screens/modal/Codeinfo'
+import color from '../color'
 
 const StackNavigation = () => {
     return (
@@ -22,6 +24,16 @@ const StackNavigation = () => {
         >
             <Screen name="GetStarted" component={GetStarted} />
             <Screen name="Home" component={TabNavigation} />
+
+            <Group screenOptions={{ presentation: 'transparentModal' }}>
+                <Screen name="Codeinfo" component={Codeinfo} options={{
+                    gestureEnabled: true,
+                    ...TransitionPresets.FadeFromBottomAndroid,
+                    cardStyle: {
+                        backgroundColor: color.transparent
+                    }
+                }} />
+            </Group>
         </Navigator>
     )
 }
