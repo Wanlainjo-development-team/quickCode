@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, Image, FlatList, TouchableOpacity } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 
 // components styles
@@ -7,27 +7,29 @@ import airtelStyle from './style'
 // import codes array
 import DATA from './codes'
 
-const AirtelScreen = ({ navigation }) => {
+// import components
+import CodeList from '../../components/CodeList'
+import Header from '../../components/Header'
+
+const AirtelScreen = () => {
     return (
         <View style={airtelStyle.container}>
-            <ImageBackground source={require('../../../assets/headBackground.png')} style={airtelStyle.headBackground}>
-                <View style={airtelStyle.headBackgroundFlex}>
-                    <Image source={require('../../../assets/airtel.png')} style={airtelStyle.headBackgroundLogo} />
-                    <Text style={airtelStyle.headBackgroundText}>Airtel Nigeria</Text>
-                </View>
-            </ImageBackground>
-            <FlatList
+            <Header
+                source={require('../../../assets/headBackground.png')}
+                headBackground={airtelStyle.headBackground}
+                headBackgroundFlex={airtelStyle.headBackgroundFlex}
+                logo={require('../../../assets/airtel.png')}
+                headBackgroundLogo={airtelStyle.headBackgroundLogo}
+                headBackgroundText={airtelStyle.headBackgroundText}
+                text={'Airtel Nigeria'}
+            />
+            <CodeList
+                codeList={airtelStyle.codeList}
+                codeCard={airtelStyle.codeCard}
+                codeCardButton={airtelStyle.codeCardButton}
+                codeCardButtonText={airtelStyle.codeCardButtonText}
+                codeCardName={airtelStyle.codeCardName}
                 data={DATA}
-                keyExtractor={item => item.id}
-                style={airtelStyle.codeList}
-                renderItem={({ item, index }) => (
-                    <TouchableOpacity onPress={() => navigation.navigate('Codeinfo', { code: item })} style={airtelStyle.codeCard}>
-                        <View style={airtelStyle.codeCardButton}>
-                            <Text style={airtelStyle.codeCardButtonText}>{item.code}</Text>
-                        </View>
-                        <Text style={airtelStyle.codeCardName}>{item.name}</Text>
-                    </TouchableOpacity>
-                )}
             />
         </View>
     )

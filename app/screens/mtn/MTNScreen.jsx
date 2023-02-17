@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, Image, FlatList, TouchableOpacity, Platform, Linking } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 
 // components styles
@@ -7,28 +7,30 @@ import mtnStyle from './style'
 // import codes array
 import DATA from './codes'
 
+// import components
+import CodeList from '../../components/CodeList'
+import Header from '../../components/Header'
 
-const MTNScreen = ({ navigation }) => {
+
+const MTNScreen = () => {
     return (
         <View style={mtnStyle.container}>
-            <ImageBackground source={require('../../../assets/headBackground.png')} style={mtnStyle.headBackground}>
-                <View style={mtnStyle.headBackgroundFlex}>
-                    <Image source={require('../../../assets/mtn.png')} style={mtnStyle.headBackgroundLogo} />
-                    <Text style={mtnStyle.headBackgroundText}>MTN Nigeria</Text>
-                </View>
-            </ImageBackground>
-            <FlatList
+            <Header
+                source={require('../../../assets/headBackground.png')}
+                headBackground={mtnStyle.headBackground}
+                headBackgroundFlex={mtnStyle.headBackgroundFlex}
+                logo={require('../../../assets/mtn.png')}
+                headBackgroundLogo={mtnStyle.headBackgroundLogo}
+                headBackgroundText={mtnStyle.headBackgroundText}
+                text={'MTN Nigeria'}
+            />
+            <CodeList
+                codeList={mtnStyle.codeList}
+                codeCard={mtnStyle.codeCard}
+                codeCardButton={mtnStyle.codeCardButton}
+                codeCardButtonText={mtnStyle.codeCardButtonText}
+                codeCardName={mtnStyle.codeCardName}
                 data={DATA}
-                keyExtractor={item => item.id}
-                style={mtnStyle.codeList}
-                renderItem={({ item, index }) => (
-                    <TouchableOpacity onPress={() => navigation.navigate('Codeinfo', { code: item })} style={mtnStyle.codeCard}>
-                        <View style={mtnStyle.codeCardButton}>
-                            <Text style={mtnStyle.codeCardButtonText}>{item.code}</Text>
-                        </View>
-                        <Text style={mtnStyle.codeCardName}>{item.name}</Text>
-                    </TouchableOpacity>
-                )}
             />
         </View>
     )

@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, Image, FlatList, TouchableOpacity } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 
 // components styles
@@ -7,27 +7,29 @@ import nineMobileStyle from './style'
 // import codes array
 import DATA from './codes'
 
-const NineMobile = ({ navigation }) => {
+// import components
+import CodeList from '../../components/CodeList'
+import Header from '../../components/Header'
+
+const NineMobile = () => {
     return (
         <View style={nineMobileStyle.container}>
-            <ImageBackground source={require('../../../assets/headBackground.png')} style={nineMobileStyle.headBackground}>
-                <View style={nineMobileStyle.headBackgroundFlex}>
-                    <Image source={require('../../../assets/9mobile.png')} style={nineMobileStyle.headBackgroundLogo} />
-                    <Text style={nineMobileStyle.headBackgroundText}>9Mobile Nigeria</Text>
-                </View>
-            </ImageBackground>
-            <FlatList
+            <Header
+                source={require('../../../assets/headBackground.png')}
+                headBackground={nineMobileStyle.headBackground}
+                headBackgroundFlex={nineMobileStyle.headBackgroundFlex}
+                logo={require('../../../assets/9mobile.png')}
+                headBackgroundLogo={nineMobileStyle.headBackgroundLogo}
+                headBackgroundText={nineMobileStyle.headBackgroundText}
+                text={'9Mobile Nigeria'}
+            />
+            <CodeList
+                codeList={nineMobileStyle.codeList}
+                codeCard={nineMobileStyle.codeCard}
+                codeCardButton={nineMobileStyle.codeCardButton}
+                codeCardButtonText={nineMobileStyle.codeCardButtonText}
+                codeCardName={nineMobileStyle.codeCardName}
                 data={DATA}
-                keyExtractor={item => item.id}
-                style={nineMobileStyle.codeList}
-                renderItem={({ item, index }) => (
-                    <TouchableOpacity onPress={() => navigation.navigate('Codeinfo', { code: item })} style={nineMobileStyle.codeCard}>
-                        <View style={nineMobileStyle.codeCardButton}>
-                            <Text style={nineMobileStyle.codeCardButtonText}>{item.code}</Text>
-                        </View>
-                        <Text style={nineMobileStyle.codeCardName}>{item.name}</Text>
-                    </TouchableOpacity>
-                )}
             />
         </View>
     )

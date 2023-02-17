@@ -10,7 +10,7 @@ const Codeinfo = () => {
     const navigation = useNavigation()
 
     const openDialer = () => {
-        Linking.openURL(Platform.OS === 'android' ? `tel:${code?.code}` : `telprompt:${code?.code}`)
+        Linking.openURL(Platform.OS === 'android' ? `tel:${code.code}` : `telprompt:${code?.code}`)
     }
 
     return (
