@@ -12,12 +12,12 @@ const CodeList = ({ codeList, codeCard, codeCardButton, codeCardButtonText, code
             keyExtractor={item => item.id}
             style={codeList}
             renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => navigation.navigate('Codeinfo', { code: item })} style={codeCard}>
-                    <View style={codeCardButton}>
-                        <Text style={codeCardButtonText}>{item.code}</Text>
-                    </View>
+                <View style={codeCard}>
                     <Text style={codeCardName}>{item.name}</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Codeinfo', { code: item })} style={codeCardButton}>
+                        <Text style={codeCardButtonText}>{item.code}</Text>
+                    </TouchableOpacity>
+                </View>
             )}
         />
     )
