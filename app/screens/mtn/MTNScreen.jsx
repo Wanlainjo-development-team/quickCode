@@ -2,7 +2,7 @@ import { View } from 'react-native'
 import React from 'react'
 
 // components styles
-import mtnStyle from './style'
+import mtnStyle from '../../style/network'
 
 // import codes array
 import DATA from './codes'

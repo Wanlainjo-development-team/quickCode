@@ -3,10 +3,10 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 const { Navigator, Screen } = createMaterialTopTabNavigator();
 
 // Colors
-import color from '../color';
+import color from '../style/color';
 
 // style
-import nav from './navigation';
+import nav from '../style/navigation';
 
 // Screens
 import MTNScreen from '../screens/mtn/MTNScreen';

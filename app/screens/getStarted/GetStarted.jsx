@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, ImageBackground, View, TouchableOpacity } from 'react-native';
 
-import getStarted from './style';
+import getStarted from '../../style/getStarted';
 
 const GetStarted = ({ navigation }) => {
   return (

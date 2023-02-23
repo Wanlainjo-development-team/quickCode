@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-import color from "../../color";
+import color from "./color";
 
 const { width, height } = Dimensions.get("window");
 
@@ -63,11 +63,11 @@ export default StyleSheet.create({
 
     codeCardButtonText: {
         color: color.white,
+        fontSize: 12,
     },
 
     codeCardName: {
         color: color.accent,
-        fontSize: 18,
-        fontWeight: "900",
+        fontSize: 15,
     }
 })

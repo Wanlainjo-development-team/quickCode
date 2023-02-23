@@ -8,7 +8,7 @@ const { Navigator, Screen, Group } = createStackNavigator()
 import GetStarted from '../screens/getStarted/GetStarted'
 import TabNavigation from './TabNavigation'
 import Codeinfo from '../screens/modal/Codeinfo'
-import color from '../color'
+import color from '../style/color'
 
 const StackNavigation = () => {
     return (

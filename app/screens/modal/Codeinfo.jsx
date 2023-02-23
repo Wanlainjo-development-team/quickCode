@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, StatusBar, Dimensions, TouchableOpacity, Platform, Linking } from 'react-native'
 import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import color from '../../color'
+import color from '../../style/color'
 
 const { width, height } = Dimensions.get('window')
 
