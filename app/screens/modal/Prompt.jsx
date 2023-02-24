@@ -19,6 +19,20 @@ const Prompt = () => {
     const changeShareAirtemFromMTNToMTNAmount = e => setShareAirtemFromMTNToMTN({ ...shareAirtemFromMTNToMTN, amount: e.nativeEvent.text })
     // MTN CODE ENDS HERE
 
+    // 9Mobile starts here
+    const [NMPin, setNMPin] = React.useState(`*232*${NMPin == undefined ? 'PIN' : NMPin}#`)
+
+    const openNMPinDialer = (code) => Linking.openURL(Platform.OS === 'android' ? `tel:${code}` : `telprompt:${code}`)
+    // 9Mobile ends  here
+
+    // Airtel starts here
+    const [AirtelPin, setAirtelPin] = React.useState(`*123*${AirtelPin == undefined ? 'PIN' : AirtelPin}#`)
+    const [AirtelAmount, setAirtelAmount] = React.useState(`*123*${AirtelAmount == undefined ? 'Amount' : AirtelAmount}#`)
+
+    const openAirtelPinDialer = (code) => Linking.openURL(Platform.OS === 'android' ? `tel:${code}` : `telprompt:${code}`)
+    const openAirtelAmountDialer = (code) => Linking.openURL(Platform.OS === 'android' ? `tel:${code}` : `telprompt:${code}`)
+    // Airtel ends here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -51,9 +65,39 @@ const Prompt = () => {
                     code?.code == '*785*Your NIN#' &&
                     <>
                         <Text style={styles.description}>{ninLinking}</Text>
-                        <TextInput placeholder='Amount' style={styles.input} value={ninLinking} onChangeText={setNinLinking} />
+                        <TextInput placeholder='Your NIN' style={styles.input} value={ninLinking} onChangeText={setNinLinking} />
                         <TouchableOpacity onPress={() => openDialer(ninLinking)} style={styles.dialerButton}>
                             <Text style={styles.dialerButtonText}>Dial {ninLinking}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*232*PIN#' &&
+                    <>
+                        <Text style={styles.description}>{NMPin}</Text>
+                        <TextInput placeholder='PIN' style={styles.input} value={NMPin} onChangeText={setNMPin} />
+                        <TouchableOpacity onPress={() => openNMPinDialer(NMPin)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {NMPin}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*123*PIN#' &&
+                    <>
+                        <Text style={styles.description}>{AirtelPin}</Text>
+                        <TextInput placeholder='PIN' style={styles.input} value={AirtelPin} onChangeText={setAirtelPin} />
+                        <TouchableOpacity onPress={() => openAirtelPinDialer(AirtelPin)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {AirtelPin}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*123*Amount#' &&
+                    <>
+                        <Text style={styles.description}>{AirtelAmount}</Text>
+                        <TextInput placeholder='Amount' style={styles.input} value={AirtelAmount} onChangeText={setAirtelAmount} />
+                        <TouchableOpacity onPress={() => openAirtelAmountDialer(AirtelAmount)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {AirtelAmount}</Text>
                         </TouchableOpacity>
                     </>
                 }
