@@ -11,19 +11,11 @@ const Prompt = () => {
 
     // MTN CODE STARTS HERE
     const [buyMTNAirtimeFromBank, setMTNBuyAirtimeFromBank] = React.useState(`*904*${buyMTNAirtimeFromBank == undefined ? 'Amount' : buyMTNAirtimeFromBank}#`)
-
     const [shareAirtemFromMTNToMTN, setShareAirtemFromMTNToMTN] = React.useState({ number: 'Number', amount: 'Amount' })
-
     const [ninLinking, setNinLinking] = React.useState(`*785*${ninLinking == undefined ? 'Your Number' : ninLinking}#`)
 
-
-
-    const openDialer = (code) => {
-        Linking.openURL(Platform.OS === 'android' ? `tel:${code}` : `telprompt:${code}`)
-    }
-
+    const openDialer = (code) => Linking.openURL(Platform.OS === 'android' ? `tel:${code}` : `telprompt:${code}`)
     const changeShareAirtemFromMTNToMTNNumber = e => setShareAirtemFromMTNToMTN({ ...shareAirtemFromMTNToMTN, number: e.nativeEvent.text })
-
     const changeShareAirtemFromMTNToMTNAmount = e => setShareAirtemFromMTNToMTN({ ...shareAirtemFromMTNToMTN, amount: e.nativeEvent.text })
     // MTN CODE ENDS HERE
 
