@@ -8,6 +8,7 @@ const { Navigator, Screen, Group } = createStackNavigator()
 import GetStarted from '../screens/getStarted/GetStarted'
 import TabNavigation from './TabNavigation'
 import Codeinfo from '../screens/modal/Codeinfo'
+import Prompt from '../screens/modal/Prompt'
 import color from '../style/color'
 
 const StackNavigation = () => {
@@ -23,10 +24,17 @@ const StackNavigation = () => {
             }}
         >
             <Screen name="GetStarted" component={GetStarted} />
-            <Screen name="Home" component={TabNavigation} />
+            <Screen name="Home" component={TabNavigation} options={{ gestureEnabled: false }} />
 
             <Group screenOptions={{ presentation: 'transparentModal' }}>
                 <Screen name="Codeinfo" component={Codeinfo} options={{
+                    gestureEnabled: true,
+                    ...TransitionPresets.FadeFromBottomAndroid,
+                    cardStyle: {
+                        backgroundColor: color.transparent
+                    }
+                }} />
+                <Screen name="Prompt" component={Prompt} options={{
                     gestureEnabled: true,
                     ...TransitionPresets.FadeFromBottomAndroid,
                     cardStyle: {

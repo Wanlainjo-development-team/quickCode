@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import color from '../../style/color'
 
-const { width, height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 const Codeinfo = () => {
     const { code } = useRoute().params
@@ -13,13 +13,18 @@ const Codeinfo = () => {
         Linking.openURL(Platform.OS === 'android' ? `tel:${code.code}` : `telprompt:${code?.code}`)
     }
 
+    const gotoPrompt = () => {
+        navigation.goBack()
+        navigation.navigate('Prompt', { code })
+    }
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
             <View style={styles.card}>
                 <Text style={styles.description}>{code.description}</Text>
                 <View style={styles.controles}>
-                    <TouchableOpacity onPress={openDialer} style={styles.dialButton}>
+                    <TouchableOpacity onPress={() => code.dial != false ? openDialer() : gotoPrompt()} style={styles.dialButton}>
                         <Text style={styles.dialButtonText}>Dial {code?.code}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.goBack()} style={styles.cancelButton}>

@@ -183,7 +183,7 @@ export default [
     },
     {
         id: 27,
-        description: "buy airtime from bank account \n *904*Amount#",
+        description: "buy airtime from bank account",
         code: "*904*Amount#",
         dial: false,
         name: 'Buy Airtime From Bank Account'
