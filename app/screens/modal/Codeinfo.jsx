@@ -106,9 +106,8 @@ const styles = StyleSheet.create({
     },
 
     cancelButtonText: {
-        color: color.accent,
+        color: color.white,
         fontSize: 18,
-        fontWeight: '900',
     },
 })
 
