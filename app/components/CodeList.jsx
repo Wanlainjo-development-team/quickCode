@@ -13,7 +13,7 @@ const CodeList = ({ codeList, codeCard, codeCardButton, codeCardButtonText, code
             style={codeList}
             renderItem={({ item }) => (
                 <View style={codeCard}>
-                    <Text style={codeCardName}>{item.name}</Text>
+                    <Text style={codeCardName}>{item.title}</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('Codeinfo', { code: item })} style={codeCardButton}>
                         <Text style={codeCardButtonText}>{item.code}</Text>
                     </TouchableOpacity>

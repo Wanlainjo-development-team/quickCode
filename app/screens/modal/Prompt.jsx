@@ -48,7 +48,7 @@ const Prompt = () => {
                     </>
                 }
                 {
-                    code?.code == '*785*Your NUN#' &&
+                    code?.code == '*785*Your NIN#' &&
                     <>
                         <Text style={styles.description}>{ninLinking}</Text>
                         <TextInput placeholder='Amount' style={styles.input} value={ninLinking} onChangeText={setNinLinking} />

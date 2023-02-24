@@ -1,1 +1,72 @@
-export default [{ "id": 1, "name": "General Information Menu", "code": "*123#", "description": "Displays a menu with general information and services" }, { "id": 2, "name": "Balance Menu", "code": "*100#", "description": "Displays your account balance and data balance" }, { "id": 3, "name": "Service Menu", "code": "*777#", "description": "Displays a menu with data plans, airtime purchase, and other services" }, { "id": 4, "name": "Data Plan Menu", "code": "*777*1#", "description": "Displays a menu with options to purchase data plans" }, { "id": 5, "name": "Voice Plan Menu", "code": "*777*2#", "description": "Displays a menu with options to purchase voice plans" }, { "id": 6, "name": "SMS Plan Menu", "code": "*777*3#", "description": "Displays a menu with options to purchase SMS plans" }, { "id": 7, "name": "International Calling Bundles Menu", "code": "*777*4#", "description": "Displays a menu with options to purchase international calling bundles" }, { "id": 8, "name": "Roaming Menu", "code": "*777*5#", "description": "Displays a menu with options for roaming" }, { "id": 9, "name": "Special Offers and Promotions Menu", "code": "*777*6#", "description": "Displays a menu with special offers and promotions" }, { "id": 10, "name": "Blackberry Plans Menu", "code": "*777*7#", "description": "Displays a menu with options for Blackberry plans" }, { "id": 11, "name": "Borrow Airtime Menu", "code": "*777*8#", "description": "Displays a menu to borrow airtime" }, { "id": 12, "name": "My Number Menu", "code": "*777*9#", "description": "Displays your phone number" }, { "id": 13, "name": "Family and Friends Menu", "code": "*777*10#", "description": "Displays a menu to add or remove family and friends numbers" }]
+export default [
+    {
+        id: 1,
+        code: "*123#",
+        dial: "*123#",
+        title: "Glo Easy Recharge",
+        description: "Allows you to recharge your line easily"
+    },
+    {
+        id: 2,
+        code: "*777#",
+        dial: "*777#",
+        title: "Glo Yakata",
+        description: "Provides you with amazing voice and data benefits when you recharge"
+    },
+    {
+        id: 3,
+        code: "*170*4#",
+        dial: "*170*4#",
+        title: "Glo Borrow Me Data",
+        description: "Allows you to borrow data if you run out of data and can't recharge at the moment"
+    },
+    {
+        id: 4,
+        code: "*777*1*1*7#",
+        dial: "*777*1*1*7#",
+        title: "Glo Borrow Me Credit",
+        description: "Allows you to borrow credit if you run out of airtime and can't recharge at the moment"
+    },
+    {
+        id: 5,
+        code: "*777*21#",
+        dial: "*777*21#",
+        title: "Glo 4X Bonus",
+        description: "Provides you with 4 times the value of your recharge"
+    },
+    {
+        id: 6,
+        code: "*777*22#",
+        dial: "*777*22#",
+        title: "Glo Jumbo",
+        description: "Gives you an amazing bonus on all your recharges"
+    },
+    {
+        id: 7,
+        code: "*777*23#",
+        dial: "*777*23#",
+        title: "Glo Twin Bash",
+        description: "Provides you with both voice and data benefits on all your recharges"
+    },
+    {
+        id: 8,
+        code: "*777*21#",
+        dial: "*777*21#",
+        title: "Glo Oga SIM",
+        description: "Provides you with amazing data benefits when you upgrade your SIM"
+    },
+    {
+        id: 9,
+        code: "*100*10*1#",
+        dial: "*100*10*1#",
+        title: "Glo Data Balance",
+        description: "Allows you to check your data balance"
+    },
+    {
+        id: 10,
+        code: "*124#",
+        dial: "*124#",
+        title: "Glo Balance Enquiry",
+        description: "Allows you to check your airtime balance"
+    }
+]
