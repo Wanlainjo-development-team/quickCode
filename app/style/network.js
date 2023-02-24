@@ -11,7 +11,7 @@ export default StyleSheet.create({
 
     headBackground: {
         width,
-        height: height * 0.3,
+        height: height * 0.17,
         justifyContent: "center",
         paddingHorizontal: 20,
     },
