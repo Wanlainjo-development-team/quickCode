@@ -9,10 +9,10 @@ import color from '../style/color';
 import nav from '../style/navigation';
 
 // Screens
-import MTNScreen from '../screens/mtn/MTNScreen';
-import GLOScreen from '../screens/glo/GLOScreen';
-import AirtelScreen from '../screens/airtel/AirtelScreen';
-import NineMobile from '../screens/9mobile/NineMobile';
+import MTNScreen from '../screens/neworkScreens/mtn/MTNScreen';
+import GLOScreen from '../screens/neworkScreens/glo/GLOScreen';
+import AirtelScreen from '../screens/neworkScreens/airtel/AirtelScreen';
+import NineMobile from '../screens/neworkScreens/9mobile/NineMobile';
 import { useDispatch } from 'react-redux';
 import { setLogo, setText } from '../features/useHeaderSlice';
 

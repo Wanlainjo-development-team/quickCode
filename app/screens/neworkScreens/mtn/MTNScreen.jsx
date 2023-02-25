@@ -2,16 +2,16 @@ import { View } from 'react-native'
 import React, { useEffect } from 'react'
 
 // components styles
-import mtnStyle from '../../style/network'
+import mtnStyle from '../../../style/network'
 
 // import codes array
 import DATA from './codes'
 
 // import components
-import CodeList from '../../components/CodeList'
+import CodeList from '../../../components/CodeList'
 import { StatusBar } from 'expo-status-bar'
 import { useDispatch } from 'react-redux'
-import { setDrawer } from '../../features/useHeaderSlice'
+import { setDrawer } from '../../../features/useHeaderSlice'
 
 const MTNScreen = ({ navigation }) => {
     const dispatch = useDispatch()
