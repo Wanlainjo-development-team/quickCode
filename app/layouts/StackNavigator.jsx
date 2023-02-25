@@ -5,7 +5,6 @@ import { createStackNavigator, TransitionPresets } from '@react-navigation/stack
 const { Navigator, Screen, Group } = createStackNavigator()
 
 // Screens
-import TabNavigation from './TabNavigation'
 import Codeinfo from '../screens/modal/Codeinfo'
 import Prompt from '../screens/modal/Prompt'
 import color from '../style/color'

@@ -16,7 +16,7 @@ import NineMobile from '../screens/9mobile/NineMobile';
 import { useDispatch } from 'react-redux';
 import { setLogo, setText } from '../features/useHeaderSlice';
 
-const TabNavigation = () => {
+const NetworkNavigation = () => {
     const dispatch = useDispatch()
 
     return (
@@ -91,4 +91,4 @@ const TabNavigation = () => {
     )
 }
 
-export default TabNavigation
+export default NetworkNavigation
