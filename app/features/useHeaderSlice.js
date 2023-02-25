@@ -5,7 +5,9 @@ export const useHeaderSlice = createSlice({
     initialState: {
         logo: 'MTN',
         text: 'MTN Nigeria',
-        drawer: null
+        drawer: null,
+        currentTab: 'MTN',
+        currentLogo: 'MTN'
     },
     reducers: {
         setText: (state, action) => {
@@ -17,10 +19,16 @@ export const useHeaderSlice = createSlice({
         setDrawer: (state, action) => {
             state.drawer = action.payload
         },
+        setCurrentTab: (state, action) => {
+            state.currentTab = action.payload
+        },
+        setCurrentLogo: (state, action) => {
+            state.currentLogo = action.payload
+        }
     }
 })
 
 // Action creators are generated for each case reducer function
-export const { setText, setLogo, setDrawer } = useHeaderSlice.actions
+export const { setText, setLogo, setDrawer, setCurrentTab, setCurrentLogo } = useHeaderSlice.actions
 
 export default useHeaderSlice.reducer

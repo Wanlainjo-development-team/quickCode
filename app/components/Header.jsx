@@ -19,12 +19,18 @@ const Header = () => {
 
         if (logo == '9MOBILE') return require('../../assets/9mobile.png')
 
+        if (logo == 'BANK') return require('../../assets/bank.png')
+
     }
 
     return (
         <ImageBackground source={require('../../assets/headBackground.png')} style={head.headBackground}>
             <View style={head.headBackgroundFlex}>
-                <Image source={image()} style={head.headBackgroundLogo} />
+                <Image source={image()} style={{
+                    ...head.headBackgroundLogo,
+                    width: logo == 'BANK' ? 35 : 50,
+                    height: logo == 'BANK' ? 35 : 50,
+                }} />
                 <Text style={head.headBackgroundText}>{text}</Text>
             </View>
             <TouchableOpacity style={head.menuButton} onPress={() => navigation.openDrawer()}>
