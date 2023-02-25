@@ -9,31 +9,6 @@ export default StyleSheet.create({
         backgroundColor: color.mainBackground,
     },
 
-    headBackground: {
-        width,
-        height: height * 0.17,
-        justifyContent: "center",
-        paddingHorizontal: 10,
-    },
-
-    headBackgroundFlex: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: 'flex-start',
-    },
-
-    headBackgroundLogo: {
-        width: 50,
-        height: 50,
-    },
-
-    headBackgroundText: {
-        color: color.white,
-        fontSize: 20,
-        fontWeight: "900",
-        marginLeft: 10,
-    },
-
     codeList: {
         height: height * 0.7,
         marginTop: 10,

@@ -9,6 +9,7 @@ import TabNavigation from './TabNavigation'
 import Codeinfo from '../screens/modal/Codeinfo'
 import Prompt from '../screens/modal/Prompt'
 import color from '../style/color'
+import Navigation from './Navigation'
 
 const StackNavigation = () => {
     return (
@@ -22,7 +23,7 @@ const StackNavigation = () => {
                 ...TransitionPresets.SlideFromRightIOS
             }}
         >
-            <Screen name="Home" component={TabNavigation} options={{ gestureEnabled: false }} />
+            <Screen name="Network" component={Navigation} options={{ gestureEnabled: false }} />
 
             <Group screenOptions={{ presentation: 'transparentModal' }}>
                 <Screen name="Codeinfo" component={Codeinfo} options={{
