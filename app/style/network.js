@@ -13,7 +13,7 @@ export default StyleSheet.create({
         width,
         height: height * 0.17,
         justifyContent: "center",
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
     },
 
     headBackgroundFlex: {
@@ -36,14 +36,14 @@ export default StyleSheet.create({
 
     codeList: {
         height: height * 0.7,
-        marginTop: 20,
+        marginTop: 10,
     },
 
     codeCard: {
         backgroundColor: color.accentLighten1,
         paddingLeft: 10,
-        paddingRight: 20,
-        marginHorizontal: 20,
+        paddingRight: 10,
+        marginHorizontal: 10,
         marginBottom: 20,
         borderRadius: 10,
         height: 55,
@@ -55,7 +55,7 @@ export default StyleSheet.create({
     codeCardButton: {
         backgroundColor: color.accent,
         height: 35,
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
         borderRadius: 8,
         justifyContent: "center",
         alignItems: "center",
@@ -63,11 +63,11 @@ export default StyleSheet.create({
 
     codeCardButtonText: {
         color: color.white,
-        fontSize: 12,
+        fontSize: 11,
     },
 
     codeCardName: {
         color: color.accent,
-        fontSize: 15,
+        fontSize: 14,
     }
 })

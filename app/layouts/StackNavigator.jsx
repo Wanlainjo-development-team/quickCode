@@ -5,7 +5,6 @@ import { createStackNavigator, TransitionPresets } from '@react-navigation/stack
 const { Navigator, Screen, Group } = createStackNavigator()
 
 // Screens
-import GetStarted from '../screens/getStarted/GetStarted'
 import TabNavigation from './TabNavigation'
 import Codeinfo from '../screens/modal/Codeinfo'
 import Prompt from '../screens/modal/Prompt'
@@ -23,7 +22,6 @@ const StackNavigation = () => {
                 ...TransitionPresets.SlideFromRightIOS
             }}
         >
-            <Screen name="GetStarted" component={GetStarted} />
             <Screen name="Home" component={TabNavigation} options={{ gestureEnabled: false }} />
 
             <Group screenOptions={{ presentation: 'transparentModal' }}>

@@ -10,10 +10,12 @@ import DATA from './codes'
 // import components
 import CodeList from '../../components/CodeList'
 import Header from '../../components/Header'
+import { StatusBar } from 'expo-status-bar'
 
 const GLOScreen = () => {
     return (
         <View style={gloStyle.container}>
+            <StatusBar style="light" />
             <Header
                 source={require('../../../assets/headBackground.png')}
                 headBackground={gloStyle.headBackground}

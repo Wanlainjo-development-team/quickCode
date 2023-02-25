@@ -8,7 +8,7 @@ export default [
     },
     {
         id: 2,
-        name: "Pay As You Go",
+        title: "Pay As You Go",
         code: "*131*200#",
         dial: "*131*200#",
         description: "MTN's USSD code for Pay As You Go browsing, allowing subscribers to access the internet on a pay-as-you-go basis."
