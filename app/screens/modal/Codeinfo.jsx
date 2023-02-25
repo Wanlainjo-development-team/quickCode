@@ -1,16 +1,21 @@
-import { View, Text, StyleSheet, StatusBar, Dimensions, TouchableOpacity, Platform, Linking } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Platform, Linking } from 'react-native'
 import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
-import color from '../../color'
+import color from '../../style/color'
 
-const { width, height } = Dimensions.get('window')
+const { width } = Dimensions.get('window')
 
 const Codeinfo = () => {
     const { code } = useRoute().params
     const navigation = useNavigation()
 
     const openDialer = () => {
-        Linking.openURL(Platform.OS === 'android' ? `tel:${code?.code}` : `telprompt:${code?.code}`)
+        Linking.openURL(Platform.OS === 'android' ? `tel:${code.code}` : `telprompt:${code?.code}`)
+    }
+
+    const gotoPrompt = () => {
+        navigation.goBack()
+        navigation.navigate('Prompt', { code })
     }
 
     return (
@@ -19,7 +24,7 @@ const Codeinfo = () => {
             <View style={styles.card}>
                 <Text style={styles.description}>{code.description}</Text>
                 <View style={styles.controles}>
-                    <TouchableOpacity onPress={openDialer} style={styles.dialButton}>
+                    <TouchableOpacity onPress={() => code.dial != false ? openDialer() : gotoPrompt()} style={styles.dialButton}>
                         <Text style={styles.dialButtonText}>Dial {code?.code}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.goBack()} style={styles.cancelButton}>
@@ -87,8 +92,7 @@ const styles = StyleSheet.create({
 
     dialButtonText: {
         color: color.white,
-        fontSize: 18,
-        fontWeight: '900',
+        fontSize: 18
     },
 
     cancelButton: {
@@ -103,7 +107,6 @@ const styles = StyleSheet.create({
     cancelButtonText: {
         color: color.accent,
         fontSize: 18,
-        fontWeight: '900',
     },
 })
 

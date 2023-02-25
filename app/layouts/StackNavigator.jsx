@@ -5,10 +5,10 @@ import { createStackNavigator, TransitionPresets } from '@react-navigation/stack
 const { Navigator, Screen, Group } = createStackNavigator()
 
 // Screens
-import GetStarted from '../screens/getStarted/GetStarted'
-import TabNavigation from './TabNavigation'
 import Codeinfo from '../screens/modal/Codeinfo'
-import color from '../color'
+import Prompt from '../screens/modal/Prompt'
+import color from '../style/color'
+import Navigation from './Navigation'
 
 const StackNavigation = () => {
     return (
@@ -22,11 +22,17 @@ const StackNavigation = () => {
                 ...TransitionPresets.SlideFromRightIOS
             }}
         >
-            <Screen name="GetStarted" component={GetStarted} />
-            <Screen name="Home" component={TabNavigation} />
+            <Screen name="Network" component={Navigation} options={{ gestureEnabled: false }} />
 
             <Group screenOptions={{ presentation: 'transparentModal' }}>
                 <Screen name="Codeinfo" component={Codeinfo} options={{
+                    gestureEnabled: true,
+                    ...TransitionPresets.FadeFromBottomAndroid,
+                    cardStyle: {
+                        backgroundColor: color.transparent
+                    }
+                }} />
+                <Screen name="Prompt" component={Prompt} options={{
                     gestureEnabled: true,
                     ...TransitionPresets.FadeFromBottomAndroid,
                     cardStyle: {
