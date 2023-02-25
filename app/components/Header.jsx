@@ -3,13 +3,12 @@ import React from 'react'
 import head from '../style/head'
 import { Feather } from '@expo/vector-icons';
 
-import { useNavigation } from '@react-navigation/native';
 import color from '../style/color';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-    const { text, logo } = useSelector(state => state.header)
-    const navigation = useNavigation()
+    const { text, logo, drawer } = useSelector(state => state.header)
+    const navigation = drawer
 
     const image = () => {
         if (logo == 'MTN') return require('../../assets/mtn.png')

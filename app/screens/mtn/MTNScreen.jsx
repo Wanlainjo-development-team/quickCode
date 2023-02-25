@@ -1,5 +1,5 @@
 import { View } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // components styles
 import mtnStyle from '../../style/network'
@@ -10,8 +10,17 @@ import DATA from './codes'
 // import components
 import CodeList from '../../components/CodeList'
 import { StatusBar } from 'expo-status-bar'
+import { useDispatch } from 'react-redux'
+import { setDrawer } from '../../features/useHeaderSlice'
 
-const MTNScreen = () => {
+const MTNScreen = ({ navigation }) => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(setDrawer(navigation))
+    }, [])
+
+
     return (
         <View style={mtnStyle.container}>
             <StatusBar style="light" />
