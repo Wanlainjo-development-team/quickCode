@@ -8,10 +8,15 @@ import NetworkNavigation from './NetworkNavigation'
 import BankingNavigation from './BankingNavigation'
 import Header from '../components/Header'
 import color from '../style/color'
+import { useDispatch, useSelector } from 'react-redux'
+import { setLogo, setText } from '../features/useHeaderSlice'
 
 const { Navigator, Screen } = createDrawerNavigator()
 
 const Navigation = () => {
+    const dispatch = useDispatch()
+    const { currentTab, currentLogo } = useSelector(state => state.header)
+
     return (
         <View style={mainNav.container}>
             <StatusBar style="light" />
@@ -25,11 +30,36 @@ const Navigation = () => {
                     drawerActiveTintColor: color.accent,
                     drawerInactiveTintColor: color.black,
                     drawerStyle: {
+                        backgroundColor: color.mainBackground,
                     },
                 }}
             >
-                <Screen name="Networks" component={NetworkNavigation} />
-                <Screen name="Banks" component={BankingNavigation} />
+                <Screen
+                    name="Networks"
+                    component={NetworkNavigation}
+                    listeners={({ navigation, route }) => ({
+                        drawerItemPress: e => {
+                            // Prevent default action
+                            e.preventDefault();
+                            navigation.jumpTo('Networks')
+                            dispatch(setText(currentTab))
+                            dispatch(setLogo(currentLogo))
+                        }
+                    })}
+                />
+                <Screen
+                    name="Banks"
+                    component={BankingNavigation}
+                    listeners={({ navigation, route }) => ({
+                        drawerItemPress: e => {
+                            // Prevent default action
+                            e.preventDefault();
+                            navigation.jumpTo('Banks')
+                            dispatch(setText('Banking'))
+                            dispatch(setLogo('BANK'))
+                        }
+                    })}
+                />
             </Navigator>
         </View>
     )

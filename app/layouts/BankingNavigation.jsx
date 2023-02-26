@@ -1,12 +1,6 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import BankingHome from '../screens/bankingScreens/BankingHome'
 
-const BankingNavigation = () => {
-  return (
-    <View>
-      <Text>BankingNavigation</Text>
-    </View>
-  )
-}
+const BankingNavigation = () => <BankingHome />
 
 export default BankingNavigation

@@ -14,7 +14,7 @@ import GLOScreen from '../screens/neworkScreens/glo/GLOScreen';
 import AirtelScreen from '../screens/neworkScreens/airtel/AirtelScreen';
 import NineMobile from '../screens/neworkScreens/9mobile/NineMobile';
 import { useDispatch } from 'react-redux';
-import { setLogo, setText } from '../features/useHeaderSlice';
+import { setCurrentLogo, setCurrentTab, setLogo, setText } from '../features/useHeaderSlice';
 
 const NetworkNavigation = () => {
     const dispatch = useDispatch()
@@ -44,6 +44,8 @@ const NetworkNavigation = () => {
                         navigation.jumpTo('MTN')
                         dispatch(setText('MTN Nigeria'))
                         dispatch(setLogo('MTN'))
+                        dispatch(setCurrentTab('MTN'))
+                        dispatch(setCurrentLogo('MTN'))
                     }
                 })}
             />
@@ -57,6 +59,8 @@ const NetworkNavigation = () => {
                         navigation.jumpTo('GLO')
                         dispatch(setText('GLO Nigeria'))
                         dispatch(setLogo('GLO'))
+                        dispatch(setCurrentTab('GLO'))
+                        dispatch(setCurrentLogo('GLO'))
                     }
                 })}
             />
@@ -70,6 +74,8 @@ const NetworkNavigation = () => {
                         navigation.jumpTo('Airtel')
                         dispatch(setText('Airtel Nigeria'))
                         dispatch(setLogo('AIRTEL'))
+                        dispatch(setCurrentTab('AIRTEL'))
+                        dispatch(setCurrentLogo('AIRTEL'))
                     }
                 })}
             />
@@ -84,6 +90,8 @@ const NetworkNavigation = () => {
                         navigation.jumpTo('NineMobile')
                         dispatch(setText('9Mobile Nigeria'))
                         dispatch(setLogo('9MOBILE'))
+                        dispatch(setCurrentTab('9MOBILE'))
+                        dispatch(setCurrentLogo('9MOBILE'))
                     }
                 })}
             />
