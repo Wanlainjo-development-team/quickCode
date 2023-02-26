@@ -130,6 +130,7 @@ const BankingHome = () => {
             <FlatList
                 data={bankCodes}
                 keyExtractor={item => item.id}
+                showsVerticalScrollIndicator={false}
                 renderItem={({ item }) => (
                     <TouchableOpacity onPress={() => navigation.navigate('Bank', { currentBank: item })} style={bankingHome.card}>
                         <View style={bankingHome.leftSide}>

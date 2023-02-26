@@ -11,6 +11,7 @@ const CodeList = ({ codeList, codeCard, codeCardButton, codeCardButtonText, code
             data={data}
             keyExtractor={item => item.id}
             style={codeList}
+            showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
                 <View style={codeCard}>
                     <Text style={codeCardName}>{item.title}</Text>
