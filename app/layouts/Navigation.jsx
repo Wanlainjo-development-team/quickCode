@@ -30,6 +30,7 @@ const Navigation = () => {
                     drawerActiveTintColor: color.accent,
                     drawerInactiveTintColor: color.black,
                     drawerStyle: {
+                        backgroundColor: color.mainBackground,
                     },
                 }}
             >
