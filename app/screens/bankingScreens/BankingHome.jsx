@@ -21,6 +21,7 @@ import UnityBankplc from '../../bankCodes/UnityBankplc'
 import wemaBank from '../../bankCodes/wemaBank'
 import color from '../../style/color'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
 
 const bankCodes = [
     {
@@ -122,6 +123,7 @@ const bankCodes = [
 ]
 
 const BankingHome = () => {
+    const navigation = useNavigation()
 
     return (
         <View style={bankingHome.container}>
@@ -129,7 +131,7 @@ const BankingHome = () => {
                 data={bankCodes}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (
-                    <TouchableOpacity style={bankingHome.card}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Bank', { currentBank: item })} style={bankingHome.card}>
                         <View style={bankingHome.leftSide}>
                             <View style={bankingHome.iconContainer}>
                                 <MaterialCommunityIcons name="bank-outline" size={24} color={color.accent} />

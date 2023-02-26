@@ -9,6 +9,7 @@ import Codeinfo from '../screens/modal/Codeinfo'
 import Prompt from '../screens/modal/Prompt'
 import color from '../style/color'
 import Navigation from './Navigation'
+import Bank from '../screens/modal/Bank'
 
 const StackNavigation = () => {
     return (
@@ -33,6 +34,13 @@ const StackNavigation = () => {
                     }
                 }} />
                 <Screen name="Prompt" component={Prompt} options={{
+                    gestureEnabled: true,
+                    ...TransitionPresets.FadeFromBottomAndroid,
+                    cardStyle: {
+                        backgroundColor: color.transparent
+                    }
+                }} />
+                <Screen name="Bank" component={Bank} options={{
                     gestureEnabled: true,
                     ...TransitionPresets.FadeFromBottomAndroid,
                     cardStyle: {

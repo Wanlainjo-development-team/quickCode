@@ -38,11 +38,13 @@ export default StyleSheet.create({
 
     codeCardButtonText: {
         color: color.white,
-        fontSize: 11,
+        fontSize: 12,
+        fontWeight: "bold",
     },
 
     codeCardName: {
         color: color.accent,
         fontSize: 14,
+        fontWeight: "bold",
     }
 })
