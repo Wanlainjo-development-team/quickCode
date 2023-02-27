@@ -15,7 +15,7 @@ export default [
     },
     {
         id: 3,
-        title: "Fund Transfer to Heritage Bank Accounts",
+        title: "Fund Transfer",
         code: "*322*030*AccountNumber*Amount#",
         dial: "*322*030*AccountNumber*Amount#",
         shortDescription: "Transfer funds to other Heritage Bank accounts"

@@ -15,14 +15,14 @@ export default [
     },
     {
         id: 3,
-        title: "Fund Transfer to GTBank Accounts",
+        title: "Fund Transfer",
         code: "*737*1*Amount*RecipientAccountNumber#",
         dial: "*737*1*Amount*RecipientAccountNumber#",
         shortDescription: "Transfer funds to other GTBank accounts"
     },
     {
         id: 4,
-        title: "Fund Transfer to Other Banks",
+        title: "Transfer to Other Banks",
         code: "*737*2*Amount*RecipientAccountNumber#",
         dial: "*737*2*Amount*RecipientAccountNumber#",
         shortDescription: "Transfer funds to other Nigerian banks"
