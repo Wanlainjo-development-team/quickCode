@@ -57,6 +57,12 @@ const Prompt = () => {
     const [GTBPayBills, setGTBPayBills] = useState({ amount: '', code: '' })
     // GTB end here
 
+    // Heritage Bank starts here
+    const [HBAirtime, setHBAirtime] = useState({ amount: '' })
+    const [HBTransfer, setHBTransfer] = useState({ amount: '', account: '' })
+    const [HBPayBills, setHBPayBills] = useState({ id: '', amount: '' })
+    // Heritage Bank end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -286,6 +292,38 @@ const Prompt = () => {
                     </>
                 }
                 {/* GTB USSD CODES END HERE */}
+
+                {/* HERITAGE BANK USSD CODES STARTS HERE */}
+                {
+                    code?.code == '*322*030*Amount#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={HBAirtime.amount} onChange={e => setHBAirtime({ ...HBAirtime, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*322*030*${HBAirtime.amount == '' ? '' : HBAirtime.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*322*030*${HBAirtime.amount == '' ? '' : HBAirtime.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*322*030*AccountNumber*Amount#' &&
+                    <>
+                        <TextInput placeholder='Account Number' style={styles.input} value={HBTransfer.account} onChange={e => setHBTransfer({ ...HBTransfer, account: e.nativeEvent.text })} />
+                        <TextInput placeholder='Amount' style={{ ...styles.input, marginTop: 0 }} value={HBTransfer.amount} onChange={e => setHBTransfer({ ...HBTransfer, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*322*030*${HBTransfer.account == '' ? '' : HBTransfer.account}*${HBTransfer.amount == '' ? '' : HBTransfer.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*322*030*${HBTransfer.account == '' ? '' : HBTransfer.account}*${HBTransfer.amount == '' ? '' : HBTransfer.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*322*030*BillerID*Amount#' &&
+                    <>
+                        <TextInput placeholder='Biller ID' style={styles.input} value={HBPayBills.id} onChange={e => setHBPayBills({ ...HBPayBills, id: e.nativeEvent.text })} />
+                        <TextInput placeholder='Amount' style={{ ...styles.input, marginTop: 0 }} value={HBPayBills.amount} onChange={e => setHBPayBills({ ...HBPayBills, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*322*030*${HBPayBills.id == '' ? '' : HBPayBills.id}*${HBPayBills.amount == '' ? '' : HBPayBills.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*322*030*${HBPayBills.id == '' ? '' : HBPayBills.id}*${HBPayBills.amount == '' ? '' : HBPayBills.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* HERITAGE BANK USSD CODES END HERE */}
             </View>
         </View>
     )
