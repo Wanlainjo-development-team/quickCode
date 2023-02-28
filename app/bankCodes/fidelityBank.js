@@ -10,14 +10,14 @@ export default [
         id: 2,
         title: "Airtime Recharge",
         code: "*770*AMOUNT#",
-        dial: "*770*AMOUNT#",
+        dial: false,
         description: "Recharge your phone with airtime"
     },
     {
         id: 3,
         title: "Transfer Money",
         code: "*770*ACCOUNT_NUMBER*AMOUNT#",
-        dial: "*770*ACCOUNT_NUMBER*AMOUNT#",
+        dial: false,
         description: "Transfer money from your Fidelity Bank account to another account"
     },
     {
@@ -38,7 +38,7 @@ export default [
         id: 6,
         title: "Bills Payment",
         code: "*770*CODE*SMART CARD NUMBER*AMOUNT#",
-        dial: "*770*CODE*SMART CARD NUMBER*AMOUNT#",
+        dial: false,
         description: "Pay bills such as electricity, water, and cable TV"
     }
 ]

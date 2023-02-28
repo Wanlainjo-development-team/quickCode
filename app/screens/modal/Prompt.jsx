@@ -31,6 +31,12 @@ const Prompt = () => {
     const [AccessBankBVN, setAccessBankBVN] = useState({ bvn: '' })
     // Access bank end here
 
+    // Fidelity bank start here
+    const [FidelityBankAirtimeAmount, setFidelityBankAirtimeAmount] = useState({ amount: '' })
+    const [FidelityBankTransfer, setFidelityBankTransfer] = useState({ account: '', amount: '' })
+    const [FidelityBankBillPayment, setFidelityBankBillPayment] = useState({ card: '', amount: '' })
+    // Fidelity bank end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -112,6 +118,38 @@ const Prompt = () => {
                     </>
                 }
                 {/* ACCESS BANK USSD CODES END HERE */}
+
+                {/* FIDELITY BANK USSD CODES START HERE */}
+                {
+                    code?.code == '*770*AMOUNT#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={FidelityBankAirtimeAmount.amount} onChange={e => setFidelityBankAirtimeAmount({ ...FidelityBankAirtimeAmount, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*770*${FidelityBankAirtimeAmount.amount == '' ? '' : FidelityBankAirtimeAmount.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*770*${FidelityBankAirtimeAmount.amount == '' ? '' : FidelityBankAirtimeAmount.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*770*ACCOUNT_NUMBER*AMOUNT#' &&
+                    <>
+                        <TextInput placeholder='Account' style={styles.input} value={FidelityBankTransfer.account} onChange={e => setFidelityBankTransfer({ ...FidelityBankTransfer, account: e.nativeEvent.text })} />
+                        <TextInput placeholder='Amount' style={{ ...styles.input, marginTop: 0 }} value={FidelityBankTransfer.amount} onChange={e => setFidelityBankTransfer({ ...FidelityBankTransfer, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*770*${FidelityBankTransfer.account == '' ? '' : FidelityBankTransfer.account}*${FidelityBankTransfer.amount == '' ? '' : FidelityBankTransfer.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*770*${FidelityBankTransfer.account == '' ? '' : FidelityBankTransfer.account}*${FidelityBankTransfer.amount == '' ? '' : FidelityBankTransfer.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*770*CODE*SMART CARD NUMBER*AMOUNT#' &&
+                    <>
+                        <TextInput placeholder='Card Number' style={styles.input} value={FidelityBankBillPayment.account} onChange={e => setFidelityBankBillPayment({ ...FidelityBankBillPayment, card: e.nativeEvent.text })} />
+                        <TextInput placeholder='Amount' style={{ ...styles.input, marginTop: 0 }} value={FidelityBankBillPayment.amount} onChange={e => setFidelityBankBillPayment({ ...FidelityBankBillPayment, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*770*${FidelityBankBillPayment.card == '' ? '' : FidelityBankBillPayment.card}*${FidelityBankBillPayment.amount == '' ? '' : FidelityBankBillPayment.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*770*${FidelityBankBillPayment.card == '' ? '' : FidelityBankBillPayment.card}*${FidelityBankBillPayment.amount == '' ? '' : FidelityBankBillPayment.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* FIDELITY BANK USSD CODES END HERE */}
             </View>
         </View>
     )
