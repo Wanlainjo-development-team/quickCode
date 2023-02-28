@@ -44,6 +44,12 @@ const Prompt = () => {
     const [FirstBankDataPurchase, setFirstBankDataPurchase] = useState({ amount: '', phone: '' })
     // First bank end here
 
+    // FCMB bank starts here
+    const [FCMBTransfer, setFCMBTransfer] = useState({ amount: '', account: '' })
+    const [FCMBAirtime, setFCMBAirtime] = useState({ amount: '' })
+    const [FCMBPayBills, setFCMBPayBills] = useState({ amount: '', code: '' })
+    // FCMB bank end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -198,6 +204,38 @@ const Prompt = () => {
                     </>
                 }
                 {/* FIRST BANK USSD CODES END HERE */}
+
+                {/* FCMB USSD CODES STARTS HERE */}
+                {
+                    code?.code == '*329*Amount*AccountNumber#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={FCMBTransfer.amount} onChange={e => setFCMBTransfer({ ...FCMBTransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={FCMBTransfer.account} onChange={e => setFCMBTransfer({ ...FCMBTransfer, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*329*${FCMBTransfer.amount == '' ? '' : FCMBTransfer.amount}*${FCMBTransfer.account == '' ? '' : FCMBTransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*329*${FCMBTransfer.amount == '' ? '' : FCMBTransfer.amount}*${FCMBTransfer.account == '' ? '' : FCMBTransfer.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*329*Amount#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={FCMBAirtime.amount} onChange={e => setFCMBAirtime({ ...FCMBAirtime, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*329*${FCMBAirtime.amount == '' ? '' : FCMBAirtime.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*329*${FCMBAirtime.amount == '' ? '' : FCMBAirtime.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*329*2*Amount*MerchantCode#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={FCMBPayBills.amount} onChange={e => setFCMBPayBills({ ...FCMBPayBills, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Merchant Code' style={{ ...styles.input, marginTop: 0 }} value={FCMBPayBills.code} onChange={e => setFCMBPayBills({ ...FCMBPayBills, code: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*329*${FCMBPayBills.amount == '' ? '' : FCMBPayBills.amount}*${FCMBPayBills.code == '' ? '' : FCMBPayBills.code}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*329*${FCMBPayBills.amount == '' ? '' : FCMBPayBills.amount}*${FCMBPayBills.code == '' ? '' : FCMBPayBills.code}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* FCMB USSD CODES END HERE */}
             </View>
         </View>
     )
