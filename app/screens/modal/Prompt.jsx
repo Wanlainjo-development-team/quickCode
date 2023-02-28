@@ -44,11 +44,18 @@ const Prompt = () => {
     const [FirstBankDataPurchase, setFirstBankDataPurchase] = useState({ amount: '', phone: '' })
     // First bank end here
 
-    // FCMB bank starts here
+    // FCMB starts here
     const [FCMBTransfer, setFCMBTransfer] = useState({ amount: '', account: '' })
     const [FCMBAirtime, setFCMBAirtime] = useState({ amount: '' })
     const [FCMBPayBills, setFCMBPayBills] = useState({ amount: '', code: '' })
-    // FCMB bank end here
+    // FCMB end here
+
+    // GTB starts here
+    const [GTBAirtime, setGTBAirtime] = useState({ amount: '', phone: '' })
+    const [GTBTransfer, setGTBTransfer] = useState({ amount: '', account: '' })
+    const [GTBTransferToOther, setGTBTransferToOther] = useState({ amount: '', account: '' })
+    const [GTBPayBills, setGTBPayBills] = useState({ amount: '', code: '' })
+    // GTB end here
 
     return (
         <View style={styles.container}>
@@ -236,6 +243,49 @@ const Prompt = () => {
                     </>
                 }
                 {/* FCMB USSD CODES END HERE */}
+
+                {/* GTB USSD CODES STARTS HERE */}
+                {
+                    code?.code == '*737*Amount*MobileNumber#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={GTBAirtime.amount} onChange={e => setGTBAirtime({ ...GTBAirtime, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Mobile Number' style={{ ...styles.input, marginTop: 0 }} value={GTBAirtime.phone} onChange={e => setGTBAirtime({ ...GTBAirtime, phone: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*737*${GTBAirtime.amount == '' ? '' : GTBAirtime.amount}*${GTBAirtime.phone == '' ? '' : GTBAirtime.phone}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*737*${GTBAirtime.amount == '' ? '' : GTBAirtime.amount}*${GTBAirtime.phone == '' ? '' : GTBAirtime.phone}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*737*1*Amount*RecipientAccountNumber#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={GTBTransfer.amount} onChange={e => setGTBTransfer({ ...GTBTransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={GTBTransfer.account} onChange={e => setGTBTransfer({ ...GTBTransfer, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*737*${GTBTransfer.amount == '' ? '' : GTBTransfer.amount}*${GTBTransfer.account == '' ? '' : GTBTransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*737*${GTBTransfer.amount == '' ? '' : GTBTransfer.amount}*${GTBTransfer.account == '' ? '' : GTBTransfer.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*737*2*Amount*RecipientAccountNumber#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={GTBTransferToOther.amount} onChange={e => setGTBTransferToOther({ ...GTBTransferToOther, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={GTBTransferToOther.account} onChange={e => setGTBTransferToOther({ ...GTBTransferToOther, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*737*${GTBTransferToOther.amount == '' ? '' : GTBTransferToOther.amount}*${GTBTransferToOther.account == '' ? '' : GTBTransferToOther.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*737*${GTBTransferToOther.amount == '' ? '' : GTBTransferToOther.amount}*${GTBTransferToOther.account == '' ? '' : GTBTransferToOther.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*737*3*Amount*MerchantCode#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={GTBPayBills.amount} onChange={e => setGTBPayBills({ ...GTBPayBills, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Merchant Code' style={{ ...styles.input, marginTop: 0 }} value={GTBPayBills.code} onChange={e => setGTBPayBills({ ...GTBPayBills, code: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*737*${GTBPayBills.amount == '' ? '' : GTBPayBills.amount}*${GTBPayBills.code == '' ? '' : GTBPayBills.code}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*737*${GTBPayBills.amount == '' ? '' : GTBPayBills.amount}*${GTBPayBills.code == '' ? '' : GTBPayBills.code}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* GTB USSD CODES END HERE */}
             </View>
         </View>
     )
