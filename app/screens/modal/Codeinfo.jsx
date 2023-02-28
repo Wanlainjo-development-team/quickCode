@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 
     dialButtonText: {
         color: color.white,
-        fontSize: 18
+        fontSize: 14
     },
 
     cancelButton: {
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
 
     cancelButtonText: {
         color: color.accent,
-        fontSize: 18,
+        fontSize: 14,
     },
 })
 
