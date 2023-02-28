@@ -78,6 +78,13 @@ const Prompt = () => {
     const [SIBTSBTransfer, setSIBTSBTransfer] = useState({ amount: '', account: '' })
     // Stanbic IBTC end here
 
+    // Sterling bank end here
+    const [SterlingAirtime, setSterlingAirtime] = useState({ amount: '' })
+    const [SterlingTransfer, setSterlingTransfer] = useState({ amount: '', account: '' })
+    const [SterlingData, setSterlingData] = useState({ amount: '', phone: '' })
+    const [SterlingBillPayment, setSterlingBillPayment] = useState({ amount: '', code: '' })
+    // Sterling bank end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -407,6 +414,48 @@ const Prompt = () => {
                     </>
                 }
                 {/* STANDBIC IBTC USSD CODES END HERE */}
+
+                {/* STERLING USSD CODES STARTS HERE */}
+                {
+                    code?.code == '*822*Amount#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={SterlingAirtime.amount} onChange={e => setSterlingAirtime({ ...SterlingAirtime, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*822*${SterlingAirtime.amount == '' ? '' : SterlingAirtime.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*822*${SterlingAirtime.amount == '' ? '' : SterlingAirtime.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*822*Amount*Account Number#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={SterlingTransfer.amount} onChange={e => setSterlingTransfer({ ...SterlingTransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={SterlingTransfer.account} onChange={e => setSterlingTransfer({ ...SterlingTransfer, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*822*${SterlingTransfer.amount == '' ? '' : SterlingTransfer.amount}*${SterlingTransfer.account == '' ? '' : SterlingTransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*822*${SterlingTransfer.amount == '' ? '' : SterlingTransfer.amount}*${SterlingTransfer.account == '' ? '' : SterlingTransfer.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*822*Amount*Phone Number#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={SterlingData.amount} onChange={e => setSterlingData({ ...SterlingData, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={SterlingData.phone} onChange={e => setSterlingData({ ...SterlingData, phone: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*822*${SterlingData.amount == '' ? '' : SterlingData.amount}*${SterlingData.phone == '' ? '' : SterlingData.phone}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*822*${SterlingData.amount == '' ? '' : SterlingData.amount}*${SterlingData.phone == '' ? '' : SterlingData.phone}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*822*Amount*Merchant Code#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={SterlingBillPayment.amount} onChange={e => setSterlingBillPayment({ ...SterlingBillPayment, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={SterlingBillPayment.code} onChange={e => setSterlingBillPayment({ ...SterlingBillPayment, code: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*822*${SterlingBillPayment.amount == '' ? '' : SterlingBillPayment.amount}*${SterlingBillPayment.code == '' ? '' : SterlingBillPayment.code}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*822*${SterlingBillPayment.amount == '' ? '' : SterlingBillPayment.amount}*${SterlingBillPayment.code == '' ? '' : SterlingBillPayment.code}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* STERLING USSD CODES END HERE */}
             </View>
         </View>
     )
