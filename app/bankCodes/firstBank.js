@@ -10,14 +10,14 @@ export default [
         id: 2,
         title: "Transfer",
         code: "*894*Amount*Account Number#",
-        dial: "*894*Amount*Account Number#",
+        dial: false,
         description: "Transfer money from your First Bank account to another account"
     },
     {
         id: 3,
         title: "Airtime",
         code: "*894*Amount#",
-        dial: "*894*Amount#",
+        dial: false,
         description: "Recharge your phone or buy airtime for someone else"
     },
     {
@@ -31,7 +31,7 @@ export default [
         id: 5,
         title: "OTP Generation",
         code: "*894*OTP#",
-        dial: "*894*OTP#",
+        dial: false,
         description: "Generate One-Time Password (OTP) for transactions"
     },
     {
@@ -45,7 +45,7 @@ export default [
         id: 7,
         title: "Data Purchase",
         code: "*894*Amount*PhoneNumber#",
-        dial: "*894*Amount*PhoneNumber#",
+        dial: false,
         description: "Purchase data bundles for yourself or someone else"
     }
 ];

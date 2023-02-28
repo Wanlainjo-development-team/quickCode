@@ -37,6 +37,13 @@ const Prompt = () => {
     const [FidelityBankBillPayment, setFidelityBankBillPayment] = useState({ card: '', amount: '' })
     // Fidelity bank end here
 
+    // First bank end here
+    const [FirstBankTransfer, setFirstBankTransfer] = useState({ amount: '', account: '' })
+    const [FirstBankAirtime, setFirstBankAirtime] = useState({ amount: '' })
+    const [FirstBankOTP, setFirstBankOTP] = useState({ otp: '' })
+    const [FirstBankDataPurchase, setFirstBankDataPurchase] = useState({ amount: '', phone: '' })
+    // First bank end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -150,6 +157,47 @@ const Prompt = () => {
                     </>
                 }
                 {/* FIDELITY BANK USSD CODES END HERE */}
+
+                {/* FIRST BANK USSD CODES STARTS HERE */}
+                {
+                    code?.code == '*894*Amount*Account Number#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={FirstBankTransfer.amount} onChange={e => setFirstBankTransfer({ ...FirstBankTransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account' style={{ ...styles.input, marginTop: 0 }} value={FirstBankTransfer.account} onChange={e => setFirstBankTransfer({ ...FirstBankTransfer, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*894*${FirstBankTransfer.amount == '' ? '' : FirstBankTransfer.amount}*${FirstBankTransfer.account == '' ? '' : FirstBankTransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*894*${FirstBankTransfer.amount == '' ? '' : FirstBankTransfer.amount}*${FirstBankTransfer.account == '' ? '' : FirstBankTransfer.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*894*Amount#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={FirstBankAirtime.amount} onChange={e => setFirstBankAirtime({ ...FirstBankAirtime, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*894*${FirstBankAirtime.amount == '' ? '' : FirstBankAirtime.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*894*${FirstBankAirtime.amount == '' ? '' : FirstBankAirtime.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*894*OTP#' &&
+                    <>
+                        <TextInput placeholder='OTP' style={styles.input} value={FirstBankOTP.otp} onChange={e => setFirstBankOTP({ ...FirstBankOTP, otp: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*894*${FirstBankOTP.otp == '' ? '' : FirstBankOTP.otp}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*894*${FirstBankOTP.otp == '' ? '' : FirstBankOTP.otp}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*894*Amount*PhoneNumber#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={FirstBankDataPurchase.amount} onChange={e => setFirstBankDataPurchase({ ...FirstBankDataPurchase, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Phone' style={{ ...styles.input, marginTop: 0 }} value={FirstBankDataPurchase.phone} onChange={e => setFirstBankDataPurchase({ ...FirstBankDataPurchase, phone: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*894*${FirstBankDataPurchase.amount == '' ? '' : FirstBankDataPurchase.amount}*${FirstBankDataPurchase.phone == '' ? '' : FirstBankDataPurchase.phone}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*894*${FirstBankDataPurchase.amount == '' ? '' : FirstBankDataPurchase.amount}*${FirstBankDataPurchase.phone == '' ? '' : FirstBankDataPurchase.phone}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* FIRST BANK USSD CODES END HERE */}
             </View>
         </View>
     )
