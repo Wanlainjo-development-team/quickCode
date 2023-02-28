@@ -73,6 +73,11 @@ const Prompt = () => {
     const [PLSBTransfer, setPLSBTransfer] = useState({ amount: '', account: '' })
     // PLSB end here
 
+    // Stanbic IBTC starts here
+    const [SIBTSBAirtime, setSIBTSBAirtime] = useState({ amount: '' })
+    const [SIBTSBTransfer, setSIBTSBTransfer] = useState({ amount: '', account: '' })
+    // Stanbic IBTC end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -373,13 +378,35 @@ const Prompt = () => {
                     code?.code == '*833*Amount*Account Number#' &&
                     <>
                         <TextInput placeholder='Amount' style={styles.input} value={PLSBTransfer.amount} onChange={e => setPLSBTransfer({ ...PLSBTransfer, amount: e.nativeEvent.text })} />
-                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={PLSBTransfer.account} onChange={e => setPLSBTransfer({ ...PLSBTransfer, phone: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={PLSBTransfer.account} onChange={e => setPLSBTransfer({ ...PLSBTransfer, account: e.nativeEvent.text })} />
                         <TouchableOpacity onPress={() => openDialer(`*833*${PLSBTransfer.amount == '' ? '' : PLSBTransfer.amount}*${PLSBTransfer.account == '' ? '' : PLSBTransfer.account}#`)} style={styles.dialerButton}>
                             <Text style={styles.dialerButtonText}>Dial {`*833*${PLSBTransfer.amount == '' ? '' : PLSBTransfer.amount}*${PLSBTransfer.account == '' ? '' : PLSBTransfer.account}#`}</Text>
                         </TouchableOpacity>
                     </>
                 }
                 {/* POLARIS BANK USSD CODES END HERE */}
+
+                {/* STANDBIC IBTC USSD CODES START HERE */}
+                {
+                    code?.code == '*909*Amount#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={SIBTSBAirtime.amount} onChange={e => setSIBTSBAirtime({ ...SIBTSBAirtime, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*909*${SIBTSBAirtime.amount == '' ? '' : SIBTSBAirtime.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*909*${SIBTSBAirtime.amount == '' ? '' : SIBTSBAirtime.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*909*Amount*Account Number#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={SIBTSBTransfer.amount} onChange={e => setSIBTSBTransfer({ ...SIBTSBTransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={SIBTSBTransfer.account} onChange={e => setSIBTSBTransfer({ ...SIBTSBTransfer, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*909*${SIBTSBTransfer.amount == '' ? '' : SIBTSBTransfer.amount}*${SIBTSBTransfer.account == '' ? '' : SIBTSBTransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*909*${SIBTSBTransfer.amount == '' ? '' : SIBTSBTransfer.amount}*${SIBTSBTransfer.account == '' ? '' : SIBTSBTransfer.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* STANDBIC IBTC USSD CODES END HERE */}
             </View>
         </View>
     )
