@@ -10,14 +10,14 @@ export default [
         id: 2,
         title: "Airtime Recharge",
         code: "*919*Amount#",
-        dial: "*919*Amount#",
+        dial: false,
         description: "Recharge airtime on your phone"
     },
     {
         id: 3,
         title: "Transfer",
         code: "*919*3*Amount*Account Number#",
-        dial: "*919*3*Amount*Account Number#",
+        dial: false,
         description: "Transfer money to another UBA account"
     },
     {

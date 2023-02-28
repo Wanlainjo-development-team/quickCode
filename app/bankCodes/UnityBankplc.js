@@ -10,14 +10,14 @@ export default [
         id: 2,
         title: 'Airtime Recharge',
         code: '*7799*Amount#',
-        dial: '*7799*Amount#',
+        dial: false,
         description: 'Recharge your mobile phone with airtime'
     },
     {
         id: 3,
         title: 'Transfer Money',
         code: '*7799*Amount*AccountNumber#',
-        dial: '*7799*Amount*AccountNumber#',
+        dial: false,
         description: 'Transfer money to another account'
     },
     {

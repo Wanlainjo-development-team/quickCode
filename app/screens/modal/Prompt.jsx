@@ -86,9 +86,19 @@ const Prompt = () => {
     // Sterling bank end here
 
     // unity bank end here
-    const [UnitybankAirtime, setUnitybankAirtime] = useState({ amount: '' })
-    const [UnityBankTransfer, setUnityBankTransfer] = useState({ amount: '', account: '' })
+    const [UnionbankAirtime, setUnionbankAirtime] = useState({ amount: '' })
+    const [UnionBankTransfer, setUnionBankTransfer] = useState({ amount: '', account: '' })
     // unity bank end here
+
+    // united bank of Africa starts here
+    const [UBAAirtime, setUBAAirtime] = useState({ amount: '' })
+    const [UBATransfer, setUBATransfer] = useState({ amount: '', account: '' })
+    // united bank of Africa end here
+
+    // unity bank of Africa starts here
+    const [UnityAirtime, setUnityAirtime] = useState({ amount: '' })
+    const [UnityTransfer, setUnityTransfer] = useState({ amount: '', account: '' })
+    // unity bank of Africa end here
 
     return (
         <View style={styles.container}>
@@ -462,23 +472,67 @@ const Prompt = () => {
                 }
                 {/* STERLING USSD CODES END HERE */}
 
-                {/* UNITY BANK USSD CODES STARTS HERE */}
+                {/* UNION BANK USSD CODES STARTS HERE */}
                 {
                     code?.code == '*826*Amount#' &&
                     <>
-                        <TextInput placeholder='Amount' style={styles.input} value={UnitybankAirtime.amount} onChange={e => setUnitybankAirtime({ ...UnitybankAirtime, amount: e.nativeEvent.text })} />
-                        <TouchableOpacity onPress={() => openDialer(`*826*${UnitybankAirtime.amount == '' ? '' : UnitybankAirtime.amount}#`)} style={styles.dialerButton}>
-                            <Text style={styles.dialerButtonText}>Dial {`*826*${UnitybankAirtime.amount == '' ? '' : UnitybankAirtime.amount}#`}</Text>
+                        <TextInput placeholder='Amount' style={styles.input} value={UnionbankAirtime.amount} onChange={e => setUnionbankAirtime({ ...UnionbankAirtime, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*826*${UnionbankAirtime.amount == '' ? '' : UnionbankAirtime.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*826*${UnionbankAirtime.amount == '' ? '' : UnionbankAirtime.amount}#`}</Text>
                         </TouchableOpacity>
                     </>
                 }
                 {
                     code?.code == '*826*2*Amount*Account Number#' &&
                     <>
-                        <TextInput placeholder='Amount' style={styles.input} value={UnityBankTransfer.amount} onChange={e => setUnityBankTransfer({ ...UnityBankTransfer, amount: e.nativeEvent.text })} />
-                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={UnityBankTransfer.account} onChange={e => setUnityBankTransfer({ ...UnityBankTransfer, account: e.nativeEvent.text })} />
-                        <TouchableOpacity onPress={() => openDialer(`*826*${UnityBankTransfer.amount == '' ? '' : UnityBankTransfer.amount}*${UnityBankTransfer.account == '' ? '' : UnityBankTransfer.account}#`)} style={styles.dialerButton}>
-                            <Text style={styles.dialerButtonText}>Dial {`*826*${UnityBankTransfer.amount == '' ? '' : UnityBankTransfer.amount}*${UnityBankTransfer.account == '' ? '' : UnityBankTransfer.account}#`}</Text>
+                        <TextInput placeholder='Amount' style={styles.input} value={UnionBankTransfer.amount} onChange={e => setUnionBankTransfer({ ...UnionBankTransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={UnionBankTransfer.account} onChange={e => setUnionBankTransfer({ ...UnionBankTransfer, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*826*${UnionBankTransfer.amount == '' ? '' : UnionBankTransfer.amount}*${UnionBankTransfer.account == '' ? '' : UnionBankTransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*826*${UnionBankTransfer.amount == '' ? '' : UnionBankTransfer.amount}*${UnionBankTransfer.account == '' ? '' : UnionBankTransfer.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* UNION BANK USSD CODES END HERE */}
+
+                {/* UNITED BANK OF AFRICA USSD CODES STARTS HERE */}
+                {
+                    code?.code == '*919*Amount#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={UBAAirtime.amount} onChange={e => setUBAAirtime({ ...UBAAirtime, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*919*${UBAAirtime.amount == '' ? '' : UBAAirtime.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*919*${UBAAirtime.amount == '' ? '' : UBAAirtime.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*919*3*Amount*Account Number#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={UBATransfer.amount} onChange={e => setUBATransfer({ ...UBATransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={UBATransfer.account} onChange={e => setUBATransfer({ ...UBATransfer, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*919*${UBATransfer.amount == '' ? '' : UBATransfer.amount}*${UBATransfer.account == '' ? '' : UBATransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*919*${UBATransfer.amount == '' ? '' : UBATransfer.amount}*${UBATransfer.account == '' ? '' : UBATransfer.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* UNITY BANK USSD CODES END HERE */}
+                
+                {/* UNITY BANK USSD CODES STARTS HERE */}
+                {
+                    code?.code == '*7799*Amount#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={UnityAirtime.amount} onChange={e => setUnityAirtime({ ...UnityAirtime, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*7799*${UnityAirtime.amount == '' ? '' : UnityAirtime.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*7799*${UnityAirtime.amount == '' ? '' : UnityAirtime.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*7799*Amount*AccountNumber#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={UnityTransfer.amount} onChange={e => setUnityTransfer({ ...UnityTransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={UnityTransfer.account} onChange={e => setUnityTransfer({ ...UnityTransfer, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*7799*${UnityTransfer.amount == '' ? '' : UnityTransfer.amount}*${UnityTransfer.account == '' ? '' : UnityTransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*7799*${UnityTransfer.amount == '' ? '' : UnityTransfer.amount}*${UnityTransfer.account == '' ? '' : UnityTransfer.account}#`}</Text>
                         </TouchableOpacity>
                     </>
                 }
