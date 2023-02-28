@@ -10,14 +10,14 @@ export default [
         id: 2,
         title: "Airtime Recharge",
         code: "*826*Amount#",
-        dial: "*826*Amount#",
+        dial: false,
         description: "Recharge airtime on your phone"
     },
     {
         id: 3,
         title: "Transfer",
         code: "*826*2*Amount*Account Number#",
-        dial: "*826*2*Amount*Account Number#",
+        dial: false,
         description: "Transfer money to another Union Bank account"
     },
     {

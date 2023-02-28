@@ -85,6 +85,11 @@ const Prompt = () => {
     const [SterlingBillPayment, setSterlingBillPayment] = useState({ amount: '', code: '' })
     // Sterling bank end here
 
+    // unity bank end here
+    const [UnitybankAirtime, setUnitybankAirtime] = useState({ amount: '' })
+    const [UnityBankTransfer, setUnityBankTransfer] = useState({ amount: '', account: '' })
+    // unity bank end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -456,6 +461,28 @@ const Prompt = () => {
                     </>
                 }
                 {/* STERLING USSD CODES END HERE */}
+
+                {/* UNITY BANK USSD CODES STARTS HERE */}
+                {
+                    code?.code == '*826*Amount#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={UnitybankAirtime.amount} onChange={e => setUnitybankAirtime({ ...UnitybankAirtime, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*826*${UnitybankAirtime.amount == '' ? '' : UnitybankAirtime.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*826*${UnitybankAirtime.amount == '' ? '' : UnitybankAirtime.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*826*2*Amount*Account Number#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={UnityBankTransfer.amount} onChange={e => setUnityBankTransfer({ ...UnityBankTransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={UnityBankTransfer.account} onChange={e => setUnityBankTransfer({ ...UnityBankTransfer, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*826*${UnityBankTransfer.amount == '' ? '' : UnityBankTransfer.amount}*${UnityBankTransfer.account == '' ? '' : UnityBankTransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*826*${UnityBankTransfer.amount == '' ? '' : UnityBankTransfer.amount}*${UnityBankTransfer.account == '' ? '' : UnityBankTransfer.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* UNITY BANK USSD CODES END HERE */}
             </View>
         </View>
     )
