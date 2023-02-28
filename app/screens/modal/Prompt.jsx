@@ -100,6 +100,13 @@ const Prompt = () => {
     const [UnityTransfer, setUnityTransfer] = useState({ amount: '', account: '' })
     // unity bank of Africa end here
 
+    // wema bank of Africa starts here
+    const [WemaTransfer, setWemaTransfer] = useState({ account: '', amount: '' })
+    const [WemaTransferToOther, setWemaTransferToOther] = useState({ account: '', amount: '', code: '' })
+    const [WemaAirtime, setWemaAirtime] = useState({ phone: '', amount: '' })
+    const [WemaPayBills, setWemaPayBills] = useState({ code: '', card: '', amount: '' })
+    // wema bank of Africa end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -515,7 +522,7 @@ const Prompt = () => {
                     </>
                 }
                 {/* UNITY BANK USSD CODES END HERE */}
-                
+
                 {/* UNITY BANK USSD CODES STARTS HERE */}
                 {
                     code?.code == '*7799*Amount#' &&
@@ -537,6 +544,53 @@ const Prompt = () => {
                     </>
                 }
                 {/* UNITY BANK USSD CODES END HERE */}
+
+                {/* WEMA BANK USSD CODES END HERE */}
+                {
+                    code?.code == '*945*account number*amount#' &&
+                    <>
+                        <TextInput placeholder='Account Number' style={styles.input} value={WemaTransfer.account} onChange={e => setWemaTransfer({ ...WemaTransfer, account: e.nativeEvent.text })} />
+                        <TextInput placeholder='Amount' style={{ ...styles.input, marginTop: 0 }} value={WemaTransfer.amount} onChange={e => setWemaTransfer({ ...WemaTransfer, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*945*${WemaTransfer.account == '' ? '' : WemaTransfer.account}*${WemaTransfer.amount == '' ? '' : WemaTransfer.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*945*${WemaTransfer.account == '' ? '' : WemaTransfer.account}*${WemaTransfer.amount == '' ? '' : WemaTransfer.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*945*account number*amount*bank code#' &&
+                    <>
+                        <TextInput placeholder='Account Number' style={styles.input} value={WemaTransferToOther.account} onChange={e => setWemaTransferToOther({ ...WemaTransferToOther, account: e.nativeEvent.text })} />
+                        <TextInput placeholder='Amount' style={{ ...styles.input, marginTop: 0 }} value={WemaTransferToOther.amount} onChange={e => setWemaTransferToOther({ ...WemaTransferToOther, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Bank Code' style={{ ...styles.input, marginTop: 0 }} value={WemaTransferToOther.code} onChange={e => setWemaTransferToOther({ ...WemaTransferToOther, code: e.nativeEvent.text })} />
+
+                        <TouchableOpacity onPress={() => openDialer(`*945*${WemaTransferToOther.account == '' ? '' : WemaTransferToOther.account}*${WemaTransferToOther.amount == '' ? '' : WemaTransferToOther.amount}*${WemaTransferToOther.code == '' ? '' : WemaTransferToOther.code}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*945*${WemaTransferToOther.account == '' ? '' : WemaTransferToOther.account}*${WemaTransferToOther.amount == '' ? '' : WemaTransferToOther.amount}*${WemaTransferToOther.code == '' ? '' : WemaTransferToOther.code}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*945*phone number*amount#' &&
+                    <>
+                        <TextInput placeholder='Phone Number' style={styles.input} value={WemaAirtime.phone} onChange={e => setWemaAirtime({ ...WemaAirtime, phone: e.nativeEvent.text })} />
+                        <TextInput placeholder='Amount' style={{ ...styles.input, marginTop: 0 }} value={WemaAirtime.amount} onChange={e => setWemaAirtime({ ...WemaAirtime, amount: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*945*${WemaAirtime.phone == '' ? '' : WemaAirtime.phone}*${WemaAirtime.amount == '' ? '' : WemaAirtime.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*945*${WemaAirtime.phone == '' ? '' : WemaAirtime.phone}*${WemaAirtime.amount == '' ? '' : WemaAirtime.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*945*service code*smart card number*amount#' &&
+                    <>
+                        <TextInput placeholder='Service Code' style={styles.input} value={WemaPayBills.code} onChange={e => setWemaPayBills({ ...WemaPayBills, code: e.nativeEvent.text })} />
+                        <TextInput placeholder='Smart Card' style={{ ...styles.input, marginTop: 0 }} value={WemaPayBills.card} onChange={e => setWemaPayBills({ ...WemaPayBills, card: e.nativeEvent.text })} />
+                        <TextInput placeholder='Amount' style={{ ...styles.input, marginTop: 0 }} value={WemaPayBills.amount} onChange={e => setWemaPayBills({ ...WemaPayBills, amount: e.nativeEvent.text })} />
+
+                        <TouchableOpacity onPress={() => openDialer(`*945*${WemaPayBills.code == '' ? '' : WemaPayBills.code}*${WemaPayBills.card == '' ? '' : WemaPayBills.card}*${WemaPayBills.amount == '' ? '' : WemaPayBills.amount}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*945*${WemaPayBills.code == '' ? '' : WemaPayBills.code}*${WemaPayBills.card == '' ? '' : WemaPayBills.card}*${WemaPayBills.amount == '' ? '' : WemaPayBills.amount}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* WEMA BANK USSD CODES END HERE */}
             </View>
         </View>
     )

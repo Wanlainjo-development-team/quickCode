@@ -10,28 +10,28 @@ export default [
         id: 2,
         title: "Transfer to Wema Bank account",
         code: "*945*account number*amount#",
-        dial: "*945*account number*amount#",
+        dial: false,
         description: "Transfer funds to any Wema Bank account"
     },
     {
         id: 3,
         title: "Transfer to other banks",
         code: "*945*account number*amount*bank code#",
-        dial: "*945*account number*amount*bank code#",
+        dial: false,
         description: "Transfer funds to accounts in other banks"
     },
     {
         id: 4,
         title: "Buy airtime",
         code: "*945*phone number*amount#",
-        dial: "*945*phone number*amount#",
+        dial: false,
         description: "Buy airtime for yourself or others"
     },
     {
         id: 5,
         title: "Pay bills",
         code: "*945*service code*smart card number*amount#",
-        dial: "*945*service code*smart card number*amount#",
+        dial: false,
         description: "Pay bills for services like DSTV, PHCN, etc."
     }
 ]
