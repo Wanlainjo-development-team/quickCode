@@ -63,6 +63,11 @@ const Prompt = () => {
     const [HBPayBills, setHBPayBills] = useState({ id: '', amount: '' })
     // Heritage Bank end here
 
+    // Keystone Bank starts here
+    const [KSBAirtime, setKSBAirtime] = useState({ amount: '', phone: '' })
+    const [KSBTransfer, setKSBTransfer] = useState({ amount: '', account: '' })
+    // Keystone Bank end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -324,6 +329,29 @@ const Prompt = () => {
                     </>
                 }
                 {/* HERITAGE BANK USSD CODES END HERE */}
+
+                {/* KEYSTONE BANK USSD CODES STARTS HERE */}
+                {
+                    code?.code == '*7111*Amount*Mobile Number#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={KSBAirtime.amount} onChange={e => setKSBAirtime({ ...KSBAirtime, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Phone Number' style={{ ...styles.input, marginTop: 0 }} value={KSBAirtime.phone} onChange={e => setKSBAirtime({ ...KSBAirtime, phone: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*7111*${KSBAirtime.amount == '' ? '' : KSBAirtime.amount}*${KSBAirtime.phone == '' ? '' : KSBAirtime.phone}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*7111*${KSBAirtime.amount == '' ? '' : KSBAirtime.amount}*${KSBAirtime.phone == '' ? '' : KSBAirtime.phone}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*7111*Amount*Account Number#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={KSBTransfer.amount} onChange={e => setKSBTransfer({ ...KSBTransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={KSBTransfer.account} onChange={e => setKSBTransfer({ ...KSBTransfer, account: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*7111*${KSBTransfer.amount == '' ? '' : KSBTransfer.amount}*${KSBTransfer.account == '' ? '' : KSBTransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*7111*${KSBTransfer.amount == '' ? '' : KSBTransfer.amount}*${KSBTransfer.account == '' ? '' : KSBTransfer.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* KEYSTONE BANK USSD CODES END HERE */}
             </View>
         </View>
     )

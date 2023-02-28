@@ -10,14 +10,14 @@ export default [
         id: 2,
         title: "Airtime Purchase",
         code: "*7111*Amount*Mobile Number#",
-        dial: "*7111*Amount*Mobile Number#",
+        dial: false,
         description: "Top up your mobile phone with airtime from your Keystone Bank account"
     },
     {
         id: 3,
         title: "Transfer",
         code: "*7111*Amount*Account Number#",
-        dial: "*7111*Amount*Account Number#",
+        dial: false,
         description: "Transfer money from your Keystone Bank account to another account"
     }
 ]
