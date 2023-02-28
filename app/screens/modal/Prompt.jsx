@@ -68,6 +68,11 @@ const Prompt = () => {
     const [KSBTransfer, setKSBTransfer] = useState({ amount: '', account: '' })
     // Keystone Bank end here
 
+    // PLSB start here
+    const [PLSBAirtime, setPLSBAirtime] = useState({ amount: '', phone: '' })
+    const [PLSBTransfer, setPLSBTransfer] = useState({ amount: '', account: '' })
+    // PLSB end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -352,6 +357,29 @@ const Prompt = () => {
                     </>
                 }
                 {/* KEYSTONE BANK USSD CODES END HERE */}
+
+                {/* POLARIS BANK USSD CODES STARTS HERE */}
+                {
+                    code?.code == '*833*Amount*Phone Number#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={PLSBAirtime.amount} onChange={e => setPLSBAirtime({ ...PLSBAirtime, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Phone Number' style={{ ...styles.input, marginTop: 0 }} value={PLSBAirtime.phone} onChange={e => setPLSBAirtime({ ...PLSBAirtime, phone: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*833*${PLSBAirtime.amount == '' ? '' : PLSBAirtime.amount}*${PLSBAirtime.phone == '' ? '' : PLSBAirtime.phone}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*833*${PLSBAirtime.amount == '' ? '' : PLSBAirtime.amount}*${PLSBAirtime.phone == '' ? '' : PLSBAirtime.phone}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {
+                    code?.code == '*833*Amount*Account Number#' &&
+                    <>
+                        <TextInput placeholder='Amount' style={styles.input} value={PLSBTransfer.amount} onChange={e => setPLSBTransfer({ ...PLSBTransfer, amount: e.nativeEvent.text })} />
+                        <TextInput placeholder='Account Number' style={{ ...styles.input, marginTop: 0 }} value={PLSBTransfer.account} onChange={e => setPLSBTransfer({ ...PLSBTransfer, phone: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*833*${PLSBTransfer.amount == '' ? '' : PLSBTransfer.amount}*${PLSBTransfer.account == '' ? '' : PLSBTransfer.account}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*833*${PLSBTransfer.amount == '' ? '' : PLSBTransfer.amount}*${PLSBTransfer.account == '' ? '' : PLSBTransfer.account}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* POLARIS BANK USSD CODES END HERE */}
             </View>
         </View>
     )

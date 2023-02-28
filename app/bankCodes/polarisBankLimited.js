@@ -10,14 +10,14 @@ export default [
         id: 2,
         title: "Airtime Purchase",
         code: "*833*Amount*Phone Number#",
-        dial: "*833*Amount*Phone Number#",
+        dial: false,
         description: "Top up your mobile phone with airtime from your Polaris Bank account"
     },
     {
         id: 3,
         title: "Transfer",
         code: "*833*Amount*Account Number#",
-        dial: "*833*Amount*Account Number#",
+        dial: false,
         description: "Transfer money from your Polaris Bank account to another account"
     }
 ]
