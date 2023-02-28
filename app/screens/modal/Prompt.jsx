@@ -27,6 +27,10 @@ const Prompt = () => {
     const [AirtelAmount, setAirtelAmount] = useState({ amount: '' })
     // Airtel ends here
 
+    // Access bank start here
+    const [AccessBankBVN, setAccessBankBVN] = useState({ bvn: '' })
+    // Access bank end here
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.invisibleButton} />
@@ -96,6 +100,18 @@ const Prompt = () => {
                     </>
                 }
                 {/* AIRTEL USSD CODES END HERE */}
+
+                {/* ACCESS BANK USSD CODES START HERE */}
+                {
+                    code?.code == '*901*BVN#' &&
+                    <>
+                        <TextInput placeholder='BVN' style={styles.input} value={AccessBankBVN.bvn} onChange={e => setAccessBankBVN({ ...AccessBankBVN, bvn: e.nativeEvent.text })} />
+                        <TouchableOpacity onPress={() => openDialer(`*901*${AccessBankBVN.bvn == '' ? '' : AccessBankBVN.bvn}#`)} style={styles.dialerButton}>
+                            <Text style={styles.dialerButtonText}>Dial {`*901*${AccessBankBVN.bvn == '' ? '' : AccessBankBVN.bvn}#`}</Text>
+                        </TouchableOpacity>
+                    </>
+                }
+                {/* ACCESS BANK USSD CODES END HERE */}
             </View>
         </View>
     )

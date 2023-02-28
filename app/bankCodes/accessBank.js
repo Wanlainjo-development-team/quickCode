@@ -30,8 +30,8 @@ export default [
     {
         id: 5,
         title: "Update BVN",
-        code: "*901*BVN #",
-        dial: "*901*BVN #",
+        code: "*901*BVN#",
+        dial: false,
         description: "Allows you to update your Bank Verification Number (BVN) for your Access Bank account."
     },
     {
