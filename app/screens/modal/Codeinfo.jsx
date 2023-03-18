@@ -39,7 +39,7 @@ const Codeinfo = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.faintBlack,
+        backgroundColor: `${color.black}20`,
         alignItems: 'center',
         justifyContent: 'flex-end',
     },
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 
     card: {
         width,
-        backgroundColor: color.mainBackground,
+        backgroundColor: color.background,
         shadowColor: color.black,
         shadowOffset: {
             width: 0,
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     },
 
     cancelButton: {
-        backgroundColor: color.accentLighten1,
+        backgroundColor: `${color.accent}20`,
         width: '18%',
         height: 50,
         borderRadius: 10,

@@ -6,11 +6,11 @@ const { width, height } = Dimensions.get("window");
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.mainBackground
+        backgroundColor: color.background
     },
 
     card: {
-        backgroundColor: color.accentLighten1,
+        backgroundColor: `${color.accent}20`,
         margin: 10,
         padding: 10,
         borderRadius: 10,

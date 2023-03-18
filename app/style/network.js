@@ -6,7 +6,7 @@ const { width, height } = Dimensions.get("window");
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.mainBackground,
+        backgroundColor: color.background,
     },
 
     codeList: {
@@ -15,7 +15,7 @@ export default StyleSheet.create({
     },
 
     codeCard: {
-        backgroundColor: color.accentLighten1,
+        backgroundColor: `${color.accent}20`,
         paddingLeft: 10,
         paddingRight: 10,
         marginHorizontal: 10,

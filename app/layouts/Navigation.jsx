@@ -26,11 +26,11 @@ const Navigation = () => {
                     headerShown: false,
                     drawerPosition: 'right',
                     drawerType: 'back',
-                    drawerActiveBackgroundColor: color.accentLighten1,
+                    drawerActiveBackgroundColor: `${color.accent}20`,
                     drawerActiveTintColor: color.accent,
                     drawerInactiveTintColor: color.black,
                     drawerStyle: {
-                        backgroundColor: color.mainBackground,
+                        backgroundColor: color.background,
                     },
                 }}
             >

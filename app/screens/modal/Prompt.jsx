@@ -599,7 +599,7 @@ const Prompt = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.faintBlack,
+        backgroundColor: `${color.black}20`,
         alignItems: 'center',
         justifyContent: 'flex-end',
     },
@@ -611,7 +611,7 @@ const styles = StyleSheet.create({
 
     card: {
         width,
-        backgroundColor: color.mainBackground,
+        backgroundColor: color.background,
         shadowColor: color.black,
         shadowOffset: {
             width: 0,
@@ -629,7 +629,7 @@ const styles = StyleSheet.create({
 
     input: {
         width: '100%',
-        backgroundColor: color.accentLighten1,
+        backgroundColor: `${color.accent}20`,
         borderRadius: 10,
         padding: 10,
         marginVertical: 20

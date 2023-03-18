@@ -4,6 +4,6 @@ import color from "./color";
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.mainBackground
+        backgroundColor: color.background
     }
 })

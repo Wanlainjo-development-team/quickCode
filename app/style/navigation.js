@@ -3,7 +3,7 @@ import color from "./color";
 
 export default StyleSheet.create({
     barStyle: {
-        backgroundColor: color.mainBackground,
+        backgroundColor: color.background,
         height: 55,
         shadowColor: color.black,
         shadowOffset: {

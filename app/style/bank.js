@@ -6,7 +6,7 @@ const { width, height } = Dimensions.get("window");
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.faintBlack,
+        backgroundColor: `${color.black}20`,
         justifyContent: "flex-end",
     },
 
@@ -17,7 +17,7 @@ export default StyleSheet.create({
     sheet: {
         minHeight: 300,
         maxHeight: height - StatusBar.currentHeight,
-        backgroundColor: color.mainBackground,
+        backgroundColor: color.background,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
     },
@@ -41,7 +41,7 @@ export default StyleSheet.create({
         width: 45,
         height: 45,
         borderRadius: 15,
-        backgroundColor: color.accentLighten1,
+        backgroundColor: `${color.accent}20`,
         alignItems: "center",
         justifyContent: "center",
     }
