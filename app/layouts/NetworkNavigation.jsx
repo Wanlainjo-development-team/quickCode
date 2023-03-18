@@ -15,6 +15,23 @@ import AirtelScreen from '../screens/neworkScreens/airtel/AirtelScreen';
 import NineMobile from '../screens/neworkScreens/9mobile/NineMobile';
 import { useDispatch } from 'react-redux';
 import { setCurrentLogo, setCurrentTab, setLogo, setText } from '../features/useHeaderSlice';
+import { Image, Text } from 'react-native';
+
+// mtn
+import mtnDark from '../../assets/mtnDark.png';
+import mtnLight from '../../assets/mtnLight.png';
+
+// glo
+import gloDark from '../../assets/gloDark.png';
+import gloLight from '../../assets/gloLight.png';
+
+// airtel
+import airtelDark from '../../assets/airtelDark.png';
+import airtelLight from '../../assets/airtelLight.png';
+
+// 9mobile
+import nineDark from '../../assets/nineDark.png';
+import nineLight from '../../assets/nineLight.png';
 
 const NetworkNavigation = () => {
     const dispatch = useDispatch()
@@ -37,6 +54,12 @@ const NetworkNavigation = () => {
             <Screen
                 name="MTN"
                 component={MTNScreen}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <Image source={focused ? mtnLight : mtnDark} style={{ width: 40, height: 13, marginTop: 10 }} />
+                    ),
+                    tabBarLabel: () => null
+                }}
                 listeners={({ navigation, route }) => ({
                     tabPress: e => {
                         // Prevent default action
@@ -52,6 +75,12 @@ const NetworkNavigation = () => {
             <Screen
                 name="GLO"
                 component={GLOScreen}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <Image source={focused ? gloLight : gloDark} style={{ width: 30, height: 30, marginTop: 2 }} />
+                    ),
+                    tabBarLabel: () => null
+                }}
                 listeners={({ navigation, route }) => ({
                     tabPress: e => {
                         // Prevent default action
@@ -67,6 +96,12 @@ const NetworkNavigation = () => {
             <Screen
                 name="Airtel"
                 component={AirtelScreen}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <Image source={focused ? airtelLight : airtelDark} style={{ width: 50, height: 16, marginTop: 10 }} />
+                    ),
+                    tabBarLabel: () => null
+                }}
                 listeners={({ navigation, route }) => ({
                     tabPress: e => {
                         // Prevent default action
@@ -82,7 +117,12 @@ const NetworkNavigation = () => {
             <Screen
                 name="NineMobile"
                 component={NineMobile}
-                options={{ title: '9 Mobile' }}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <Image source={focused ? nineLight : nineDark} style={{ width: 50, height: 16, marginTop: 10 }} />
+                    ),
+                    tabBarLabel: () => null
+                }}
                 listeners={({ navigation, route }) => ({
                     tabPress: e => {
                         // Prevent default action
